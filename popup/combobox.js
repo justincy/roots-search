@@ -40,7 +40,23 @@
         .autocomplete({
           delay: 0,
           minLength: 0,
-          source: self.options.values,
+          source: function( request, response ) {
+            var matcher = new RegExp( $.ui.autocomplete.escapeRegex(request.term), "i" );
+            response( select.children( "option" ).map(function() {
+              var text = $( this ).text();
+              if ( this.value && ( !request.term || matcher.test(text) ) )
+                return {
+                  label: text.replace(
+                    new RegExp(
+                      "(?![^&;]+;)(?!<[^<>]*)(" +
+                      $.ui.autocomplete.escapeRegex(request.term) +
+                      ")(?![^<>]*>)(?![^&;]+;)", "gi"
+                    ), "<strong>$1</strong>" ),
+                  value: text,
+                  option: this
+                };
+            }) );
+          },
           select: function( event, ui ) {
             ui.item.option.selected = true;
             self._trigger( "selected", event, {
