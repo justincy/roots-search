@@ -20,6 +20,10 @@ body {
   font-size: 12px;
 }
 
+.field-wrap {
+  margin-bottom: 1em;
+}
+
 .field-label {
   padding-left: 3px;
   color: #777;
@@ -43,4 +47,27 @@ body {
 
 #update-button-wrap {
   text-align: center;
+}
+
+.ui-combobox {
+  position: relative;
+  display: inline-block;
+}
+.ui-combobox-toggle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin-left: -1px;
+  padding: 0;
+}
+.ui-combobox-input {
+  margin: 0;
+  padding: 0 0.3em;
+  width: 110px;
+}
+.ui-button-icon-only {
+  width: 1.5em;
+}
+.ui-autocomplete.ui-menu {
+  font-size: 0.7em;
 }

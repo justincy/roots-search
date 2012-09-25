@@ -7,7 +7,7 @@
   "background": { 
     "scripts": [ 
       "background.js",
-	  "includes/jquery.js", 
+	    "includes/jquery.js", 
       "includes/utils.js",
       "builders/ancestry.js",
       "builders/billiongraves.js",
